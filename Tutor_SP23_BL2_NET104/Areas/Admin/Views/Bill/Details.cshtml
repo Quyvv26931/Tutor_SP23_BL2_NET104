@@ -1,0 +1,15 @@
+﻿@using Tutor_SP23_BL2_NET104.Models;
+@{
+    Bill bill = ViewBag.bill;
+    ViewData["Title"] = @bill.Id;
+    Layout = @"~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+
+@if (bill == null)
+{
+
+}
+else
+{
+
+}

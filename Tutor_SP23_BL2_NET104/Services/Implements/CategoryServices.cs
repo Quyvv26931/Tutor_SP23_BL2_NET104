@@ -1,9 +1,9 @@
-﻿using GiangNLH.ArtShop.Services.Interfaces;
+﻿using Tutor_SP23_BL2_NET104.Services.Interfaces;
 using Tutor_SP23_BL2_NET104.ArtShopDbContext;
 using Tutor_SP23_BL2_NET104.Models;
 using Microsoft.EntityFrameworkCore;
 
-namespace GiangNLH.ArtShop.Services.Implements
+namespace Tutor_SP23_BL2_NET104.Services.Implements
 {
     public class CategoryServices : ICategoryServices
     {

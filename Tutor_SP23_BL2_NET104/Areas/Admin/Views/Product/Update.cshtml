@@ -1,0 +1,79 @@
+﻿@using Tutor_SP23_BL2_NET104.Models;
+@inject IHttpContextAccessor _httpContextAccessor;
+
+@{
+    ViewData["Title"] = "Cập nhật sản phẩm";
+    Layout = @"~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+    List<Category> listCategory = ViewBag.listCategory;
+    Product oldProduct = ViewBag.oldProduct;
+}
+
+@model Product
+
+@if (listCategory == null)
+{
+
+}
+else
+{
+    <div class="content">
+        <div class="rounded bg-white p-4 my-5"
+             style="max-width: 1000px; margin: 0 auto;box-shadow: 0px 0px 30px rgba(187,51,255,1)">
+            <h3 class="text-center m-0 p-0">Cập nhật sản phẩm</h3>
+
+            <form class="row" method="post" action="~/Admin/Product/Update">
+                @Html.HiddenFor(m => m.Id)
+
+                <div class="col-6">
+                    <div class="form-group my-2">
+                        <label for="Name">Tên sản phẩm</label>
+                        @Html.TextBoxFor(m => m.Name, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(Model => Model.Name, "", new { @class = "text-danger" })
+                    </div>
+                    <div class="form-group my-2">
+                        <label for="IdCategory">Loại</label>
+                        @Html.DropDownListFor(m => m.IdCategory,
+                    listCategory.Select(x => new SelectListItem() { Text = x.Name.Trim(), Value = x.Id.ToString().Trim() }), new { @class = "form-control" })
+                        @Html.ValidationMessageFor(Model => Model.IdCategory, "", new { @class = "text-danger" })
+                    </div>
+                    <div class="form-group my-2">
+                        <label for="Amount">Số lượng tồn</label>
+                        @Html.TextBoxFor(m => m.Amount, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(Model => Model.Amount, "", new { @class = "text-danger" })
+                    </div>
+                    <div class="form-group my-2">
+                        <label for="Price">Giá</label>
+                        @Html.TextBoxFor(m => m.Price, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(Model => Model.Price, "", new { @class = "text-danger" })
+                    </div>
+                    <div class="form-group my-2">
+                        <label for="ReducedPrice">Giá bán</label>
+                        @Html.TextBoxFor(m => m.ReducedPrice, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(Model => Model.ReducedPrice, "", new { @class = "text-danger" })
+                    </div>
+
+                </div>
+
+                <div class="col-6">
+                    <div class="form-group my-2">
+                        <label for="Description">Mô tả</label>
+                        @Html.TextAreaFor(m => m.Description, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(Model => Model.Description, "", new { @class = "text-danger" })
+                    </div>
+                    <div class="form-group my-2">
+                        <label for="Image">Đường dẫn ảnh</label>
+                        @Html.TextBoxFor(m => m.Image, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(Model => Model.Image, "", new { @class = "text-danger" })
+                    </div>
+                    <div class="row m-0 p-0">
+                        <button type="submit" class="col-5 btn rounded my-2">Chỉnh sửa</button>
+                        <div class="col-2"></div>
+                        <button type="reset" class="col-5 btn rounded my-2">Khôi phục</button>
+                    </div>
+                </div>
+            </form>
+
+
+        </div>
+    </div>
+}

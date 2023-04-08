@@ -1,4 +1,4 @@
-﻿using GiangNLH.ArtShop.Configurations;
+﻿using Tutor_SP23_BL2_NET104.Configurations;
 using Tutor_SP23_BL2_NET104.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;

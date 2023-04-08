@@ -1,10 +1,10 @@
-﻿using GiangNLH.ArtShop.Services.Implements;
-using GiangNLH.ArtShop.Services.Interfaces;
+﻿using Tutor_SP23_BL2_NET104.Services.Implements;
+using Tutor_SP23_BL2_NET104.Services.Interfaces;
 using Tutor_SP23_BL2_NET104.Models;
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
 
-namespace GiangNLH.ArtShop.Controllers
+namespace Tutor_SP23_BL2_NET104.Controllers
 {
     public class HomeController : Controller
     {

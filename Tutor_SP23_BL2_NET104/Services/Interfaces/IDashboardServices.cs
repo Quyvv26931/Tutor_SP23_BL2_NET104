@@ -1,7 +1,7 @@
-﻿using GiangNLH.ArtShop.Models.ViewModels;
+﻿using Tutor_SP23_BL2_NET104.Models.ViewModels;
 using Tutor_SP23_BL2_NET104.Models;
 
-namespace GiangNLH.ArtShop.Services.Interfaces
+namespace Tutor_SP23_BL2_NET104.Services.Interfaces
 {
     public interface IDashboardServices
     {

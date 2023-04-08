@@ -1,4 +1,4 @@
-﻿namespace GiangNLH.ArtShop.Models.EntityBase
+﻿namespace Tutor_SP23_BL2_NET104.Models.Base
 {
     public class EntityBase
     {

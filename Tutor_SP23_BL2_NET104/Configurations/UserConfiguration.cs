@@ -2,7 +2,7 @@
 using Microsoft.EntityFrameworkCore;
 using Tutor_SP23_BL2_NET104.Models;
 
-namespace GiangNLH.ArtShop.Configurations
+namespace Tutor_SP23_BL2_NET104.Configurations
 {
     public class UserConfiguration : IEntityTypeConfiguration<User>
     {

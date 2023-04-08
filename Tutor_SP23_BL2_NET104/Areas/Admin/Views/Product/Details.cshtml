@@ -1,0 +1,78 @@
+﻿@using Tutor_SP23_BL2_NET104.Models;
+@using System.Globalization;
+@{
+    Layout = @"~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+    Product product = ViewBag.product;
+    List<Category> listCategory = ViewBag.listCategory;
+
+}
+
+@if (product == null)
+{
+    <div class="content">
+        <div class="" style="background: #ffffff61!important;">
+            <h3 class="text-uppercase text-center pt-2">Thông tin chi tiết sản phẩm</h3>
+            <h5 class="text-uppercase text-center pt-2">Sản phẩm không tồn tại</h5>
+        </div>
+    </div>
+}
+else
+{
+    <div class="content pb-5 bg-white">
+        <div class="" style="background: #ffffff61!important;">
+            <h3 class="text-uppercase text-center pt-2">Thông tin chi tiết sản phẩm</h3>
+            <div class="row m-0 p-0">
+                <div class="col-lg-6 col-md-4">
+                    <div class="p-3">
+                        <img src="@product.Image" alt="product" style="object-fit: cover; max-width: 100%; height: auto;">
+                    </div>
+                </div>
+                <div class="col-lg-6 col-md-8" style="border-left: 1px solid;">
+                    <div class="p-3">
+                        <h5 class="py-1">@product.Name</h5>
+                        <p><b>Danh mục:</b> @listCategory.FirstOrDefault(c=>c.Id == product.IdCategory).Name</p>
+                        <p>
+                            <b>Mô tả:</b> @product.Description
+                        </p>
+                        <p>
+                            <b>Số lượng tồn:</b> @product.Amount
+                        </p>
+                        <h3 class="product-price my-2">
+                            <small class="text-muted" style="text-decoration: line-through;">@string.Format(new CultureInfo("vi-VN"), "{0:C0}", product.Price)</small>
+                            <span>@string.Format(new CultureInfo("vi-VN"), "{0:C0}", product.ReducedPrice)</span>
+                        </h3>
+                        <p></p>
+
+                        <div class="row m-0 py-4 px-0">
+                            <a href="#cart" class="col-6">
+                                <button type="button" title="Mua ngay" class="btn-product rounded p-3 fs-5"
+                                        style="max-width: 100%; height: auto;">
+                                    <i class="fas fa-dollar-sign px-1"></i><i class="fas fa-dollar-sign fs-3"></i><i class="fas fa-dollar-sign px-1"></i>
+                                    Mua ngay
+                                </button>
+                            </a>
+                            <div class="col-6">
+                                <button type="button" title="Thêm vào giỏ hàng" class="btn-product rounded py-3 px-2 fs-5"
+                                        onclick='AddToCart()' style="max-width: 100%; height: auto;">
+                                    <i class="fas fa-cart-plus fs-3 px-1"></i>
+                                    Thêm vào giỏ hàng
+                                </button>
+                            </div>
+                        </div>
+
+                        <div>
+                            <h5 class="py-2">Thông tin & Khuyến mãi</h5>
+                            <p>Miễn phí vận chuyển cho đơn hàng từ 600.000 VNĐ</p>
+                            <p>⇔ Giao hàng toàn quốc</p>
+                            <p>⇔ Hỗ trợ tư vấn thiết kế miễn phí</p>
+                            <p>⇔ Chất lượng tranh cao cấp, bền màu, sắc nét, dễ bảo quản, lau chùi</p>
+                            <p>⇔ Tặng đinh đa năng treo tranh (không cần khoan tường)</p>
+                            <p>⇔ Bảo hành 1 đổi 1 trong vòng 7 ngày</p>
+                            <p>⇔ Quý khách hàng muốn mở đại lý, nhà phân phối liên hệ: 0123456789</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+}

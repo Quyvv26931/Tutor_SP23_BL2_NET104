@@ -1,10 +1,10 @@
-﻿using GiangNLH.ArtShop.Services.Interfaces;
+﻿using Tutor_SP23_BL2_NET104.Services.Interfaces;
 using Tutor_SP23_BL2_NET104.ArtShopDbContext;
 using Tutor_SP23_BL2_NET104.Models;
 using Microsoft.EntityFrameworkCore;
 using System.Threading;
 
-namespace GiangNLH.ArtShop.Services.Implements
+namespace Tutor_SP23_BL2_NET104.Services.Implements
 {
     public class UserServices : IUserServices
     {

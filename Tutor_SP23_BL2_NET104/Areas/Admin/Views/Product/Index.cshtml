@@ -1,0 +1,78 @@
+﻿@using Tutor_SP23_BL2_NET104.Models;
+@using System.Globalization;
+@{
+    ViewData["Title"] = "Danh sách sản phẩm";
+    Layout = @"~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+    var listProduct = ViewBag.listProduct;
+}
+
+@if (listProduct == null)
+{
+
+}
+else
+{
+    <div class="content pb-5 bg-white">
+        <div class="container row m-0 p-0">
+            <h3 class="text-uppercase text-center py-4 col-8" style="text-align: right!important;">Danh sách sản phẩm</h3>
+            <div class="col-2"></div>
+            <a href="~/Admin/Product/Create" class="btn btn-product  my-3 py-2" style="float: right !important; width:fit-content; height:fit-content;">Thêm sản phẩm</a>
+            <div class="col-2">
+            </div>
+        </div>
+        <table class="table table-hover text-center"
+               style="max-width: 1000px; margin: 0 auto;box-shadow: 0px 0px 30px rgba(187,51,255,1); color: unset; table-layout: fixed; vertical-align: middle;">
+            <thead class="fs-6">
+                <tr>
+                    <th scope="col">STT</th>
+                    <th colspan="3">Sản phẩm</th>
+                    <th>Giá tiền</th>
+                    <th>SL tồn</th>
+                    <th>Giá bán</th>
+                    <th colspan="3">Chức năng</th>
+                </tr>
+            </thead>
+            <tbody>
+                @{
+                    var index = 1;
+                }
+                @foreach (Product pro in listProduct)
+                {
+                    <tr>
+                        <th scope="row">@(index++)</th>
+                        <td colspan="3">
+                            <div class="row p-0 m-0">
+                                <div class="col-6">
+                                    <img class="p-2" src="@(pro.Image)" alt="product"
+                                         style="object-fit: cover; max-width: 100%;height: auto;">
+                                </div>
+                                <div class="col-6 py-4">
+                                    <p class="text-start" style="text-overflow: ellipsis;">@(pro.Name)</p>
+                                </div>
+                            </div>
+                        </td>
+                        <td>@(string.Format(new CultureInfo("vi-VN"), "{0:C0}", pro.Price))</td>
+                        <td>@(pro.Amount)</td>
+                        <td class="text-break"><b>@(string.Format(new CultureInfo("vi-VN"), "{0:C0}", pro.ReducedPrice))</b></td>
+                        <td colspan="3">
+                            <div class="row m-0 p-0">
+                                <div class="row m-0 p-0">
+                                    <a type="button" class="btn btn-product py-2 col-lg-3 m-0 p-0"
+                                       href="~/Admin/Product/Details/@(pro.Id)">Chi tiết</a>
+                                    <div class="col-1 m-0 p-0"></div>
+                                    <a type="button" class="btn btn-product py-2 col-lg-3 m-0 p-0"
+                                       href="~/Admin/Product/Update?id=@(pro.Id)">Sửa</a>
+                                    <div class="col-1 m-0 p-0"></div>
+                                    <a type="button" class="btn btn-product py-2 col-lg-3 m-0 p-0"
+                                       href="~/Admin/Product/Delete/@(pro.Id)">Xóa</a>
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+
+                }
+            </tbody>
+        </table>
+
+    </div>
+}
